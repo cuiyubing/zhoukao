@@ -39,7 +39,7 @@ public class ProductInfo implements Serializable {
     /** 类目编号. */
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
     @JoinColumn(name = "category_type",referencedColumnName = "category_type")
-    private Integer categoryType;
+    private ProductCategory categoryType;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
