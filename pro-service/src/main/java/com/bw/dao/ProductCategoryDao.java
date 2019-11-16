@@ -11,6 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ProductCategoryDao extends JpaRepository<ProductInfo,String>, JpaSpecificationExecutor<ProductInfo> {
     @Modifying
     @Transactional
-    @Query(nativeQuery = true,value = "delete from ProductInfo where productId in (:productIds)")
+    @Query(nativeQuery = true,value = "delete from product_info where productId in (:productIds)")
     int deleteAllByProductId(@Param("productIds") String productIds);
 }
