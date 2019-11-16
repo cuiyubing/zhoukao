@@ -80,7 +80,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public int del(String[] productIds) {
+    public int del(String productIds) {
         return productCategoryDao.deleteAllByProductId(productIds);
     }
 

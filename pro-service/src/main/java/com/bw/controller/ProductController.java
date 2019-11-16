@@ -34,7 +34,7 @@ public class ProductController {
         return productService.selectProductCategoryList();
     }
     @RequestMapping("del")
-    public boolean del(String[] productIds){
+    public boolean del(String productIds){
         return productService.del(productIds)>0;
     }
     @RequestMapping("save")
