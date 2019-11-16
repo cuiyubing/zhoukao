@@ -35,6 +35,8 @@ public class ProductController {
     }
     @RequestMapping("del")
     public boolean del(String productIds){
+
+        System.out.println("@@@@@@@@"+productIds);
         return productService.del(productIds)>0;
     }
     @RequestMapping("save")
