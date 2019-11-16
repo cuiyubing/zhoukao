@@ -2,10 +2,7 @@ package com.bw.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -20,6 +17,7 @@ public class ProductCategory {
     private String categoryName;
 
     /** 类目编号. */
+    @Column(name = "category_type")
     private Integer categoryType;
 
     private Date createTime;
