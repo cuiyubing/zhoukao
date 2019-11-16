@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import java.util.Date;
 @Data
 @Table(name = "product_info")
 @Entity
-public class ProductInfo {
+public class ProductInfo implements Serializable {
 
     @Id
     @GeneratedValue
