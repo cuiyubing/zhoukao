@@ -7,6 +7,7 @@ import com.bw.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,11 +26,19 @@ public class ProductController {
 //        p.setPageNum(1);
 //        p.setPageSize(3);
         Page<ProductInfo> productInfos = productService.selectProductsByCondition(productVO);
-        System.out.println(productInfos);
+        System.err.println(productInfos.getContent());
         return productService.selectProductsByCondition(productVO);
     }
     @RequestMapping("gettypelist")
     public List<ProductCategory> gettypelist(){
         return productService.selectProductCategoryList();
+    }
+    @RequestMapping("del")
+    public boolean del(String[] productIds){
+        return productService.del(productIds)>0;
+    }
+    @RequestMapping("save")
+    public boolean add(@RequestBody ProductInfo productInfo){
+        return productService.add(productInfo)>0;
     }
 }

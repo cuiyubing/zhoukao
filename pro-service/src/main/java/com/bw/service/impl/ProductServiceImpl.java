@@ -78,4 +78,19 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductCategory> selectProductCategoryList() {
         return productInfoDao.findAll();
     }
+
+    @Override
+    public int del(String[] productIds) {
+        return productCategoryDao.deleteAllByProductId(productIds);
+    }
+
+    @Override
+    public int add(ProductInfo productInfo) {
+        ProductInfo save = productCategoryDao.save(productInfo);
+        if(save!=null){
+            return 1;
+        }
+        return 1;
+    }
+
 }

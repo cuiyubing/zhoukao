@@ -11,4 +11,8 @@ public interface ProductService {
 
     Page<ProductInfo> selectProductsByCondition(ProductVO productVO);
     List<ProductCategory> selectProductCategoryList();
+
+    int del(String[] productIds);
+
+    int add(ProductInfo productInfo);
 }
