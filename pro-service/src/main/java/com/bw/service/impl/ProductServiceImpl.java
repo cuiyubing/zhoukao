@@ -1,6 +1,8 @@
 package com.bw.service.impl;
 
 import com.bw.dao.ProductCategoryDao;
+import com.bw.dao.ProductInfoDao;
+import com.bw.entity.ProductCategory;
 import com.bw.entity.ProductInfo;
 import com.bw.entity.ProductVO;
 import com.bw.service.ProductService;
@@ -21,6 +23,8 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Resource
     private ProductCategoryDao productCategoryDao;
+    @Resource
+    private ProductInfoDao productInfoDao;
     @Override
     public Page<ProductInfo> selectProductsByCondition(ProductVO productVO) {
         Specification<ProductInfo> spec = new Specification<ProductInfo>() {
@@ -68,5 +72,10 @@ public class ProductServiceImpl implements ProductService {
         };
 
         return productCategoryDao.findAll(spec, PageRequest.of(productVO.getPageNum()-1,productVO.getPageSize()));
+    }
+
+    @Override
+    public List<ProductCategory> selectProductCategoryList() {
+        return productInfoDao.findAll();
     }
 }

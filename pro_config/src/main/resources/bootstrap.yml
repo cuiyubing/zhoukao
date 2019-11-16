@@ -5,5 +5,5 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/cuiyubing/zhoukao.git
           search-paths: config-repo
