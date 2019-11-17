@@ -35,9 +35,9 @@ public class ProductController {
     }
     @RequestMapping("del")
     public boolean del(String productIds){
-
-        System.out.println("@@@@@@@@"+productIds);
-        return productService.del(productIds)>0;
+        String[] split = productIds.split(",");
+        System.out.println(split);
+        return productService.del(split)>0;
     }
     @RequestMapping("save")
     public boolean add(@RequestBody ProductInfo productInfo){

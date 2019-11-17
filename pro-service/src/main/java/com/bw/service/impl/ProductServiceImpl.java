@@ -27,6 +27,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductInfoDao productInfoDao;
     @Override
     public Page<ProductInfo> selectProductsByCondition(ProductVO productVO) {
+
         Specification<ProductInfo> spec = new Specification<ProductInfo>() {
             @Override
             public Predicate toPredicate(Root<ProductInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
@@ -65,7 +66,6 @@ public class ProductServiceImpl implements ProductService {
                     Predicate p5 = cb.le(root.get("productPrice"), productVO.getMaxPrice());
                     list.add(p5);
                 }
-
                 Predicate[] arr = list.toArray(new Predicate[list.size()]);
                 return cb.and(arr);
             }
@@ -81,7 +81,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int del(String productIds) {
-        return productCategoryDao.deleteAllByProductId(productIds);
+        productCategoryDao.deleteAllByProductId(productIds);
+        return 1;
     }
 
     @Override

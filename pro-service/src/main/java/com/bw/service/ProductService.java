@@ -12,7 +12,7 @@ public interface ProductService {
     Page<ProductInfo> selectProductsByCondition(ProductVO productVO);
     List<ProductCategory> selectProductCategoryList();
 
-    int del(String productIds);
+    int del(String[] split);
 
     int add(ProductInfo productInfo);
 }
